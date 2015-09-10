@@ -7,6 +7,8 @@ def _main():
 	parser = ArgumentParser()
 	parser.add_argument(
 		'-n','--name', help='name', default="notify-pipe")
+	parser.add_argument(
+		'-i','--icon', help='icon ', default="")
 
 	args = parser.parse_args()
 
@@ -20,8 +22,12 @@ def _main():
 	lines_iterator = iter(sys.stdin.readline, b"")
 	for line in lines_iterator:
 		print(line.decode()),
-		Hello.update(name,line)
+		sys.stdout.flush()
+		Hello.update(name, line, args.icon)
 		Hello.show()
 
 if __name__ == '__main__':
-	_main()
+	try:
+		_main()
+	except KeyboardInterrupt:
+		sys.exit(0)

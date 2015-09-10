@@ -5,7 +5,7 @@ except:
 
 setup(
     name='notify-pipe',
-    version='0.0.1',
+    version='0.0.2',
     author='Alexander Treptau',
     author_email='alex@treptau.eu',
     url='https://github.com/fasib/notify-pipe',
